@@ -1,5 +1,5 @@
 {
-	"BUILD_DIR" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen",
+	"BUILD_DIR" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen",
 	"CMAKE_BINARY_DIR" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug",
 	"CMAKE_CURRENT_BINARY_DIR" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug",
 	"CMAKE_CURRENT_SOURCE_DIR" : "/home/ivanovx/Desktop/tcp-brocker",
@@ -97,12 +97,12 @@
 		"/home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/share/cmake-3.28/Modules/GNUInstallDirs.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/ivanovx/Desktop/tcp-brocker",
-	"DEP_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "tcp_brocker_autogen/timestamp",
+	"DEP_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "tcp_broker_autogen/timestamp",
 	"HEADERS" : [],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : [ "QT_CORE_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
@@ -143,17 +143,17 @@
 		"-c",
 		"/home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 2,
-	"PARSE_CACHE_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/CMakeFiles/tcp_brocker_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/CMakeFiles/tcp_broker_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/opt/Qt/6.7.0/gcc_64/./libexec/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 7,
-	"SETTINGS_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/CMakeFiles/tcp_brocker_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/CMakeFiles/tcp_broker_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[ "/home/ivanovx/Desktop/tcp-brocker/main.cpp", "MU", null ]

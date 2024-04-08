@@ -17,12 +17,12 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "tcp_brocker_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"id" : "tcp_broker_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "tcp_brocker_autogen::@6890427a1f51a3e7e1df",
+	"id" : "tcp_broker_autogen::@6890427a1f51a3e7e1df",
 	"isGeneratorProvided" : true,
-	"name" : "tcp_brocker_autogen",
+	"name" : "tcp_broker_autogen",
 	"paths" : 
 	{
 		"build" : ".",
@@ -51,19 +51,19 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/tcp_brocker_autogen",
+			"path" : "cmake-build-release-system/CMakeFiles/tcp_broker_autogen",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/tcp_brocker_autogen.rule",
+			"path" : "cmake-build-release-system/CMakeFiles/tcp_broker_autogen.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/tcp_brocker_autogen/timestamp.rule",
+			"path" : "cmake-build-release-system/tcp_broker_autogen/timestamp.rule",
 			"sourceGroupIndex" : 1
 		}
 	],

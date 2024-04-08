@@ -1,0 +1,8 @@
+# ninja log v5
+11	30	1712569890849572639	tcp_brocker_autogen/mocs_compilation.cpp	b2e74b508821515a
+51	107	1712569047578787678	CMakeFiles/tcp_brocker.dir/tcp_brocker_autogen/mocs_compilation.cpp.o	2a8181955862f5df
+11	30	1712569890849572639	tcp_brocker_autogen/timestamp	b2e74b508821515a
+4873	5101	1712569052572848663	tcp_brocker	3b98ddd0e40f5180
+52	4870	1712569052332845732	CMakeFiles/tcp_brocker.dir/main.cpp.o	c40de211052514ba
+11	30	1712569890849572639	/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/mocs_compilation.cpp	b2e74b508821515a
+11	30	1712569890849572639	/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/timestamp	b2e74b508821515a

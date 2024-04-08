@@ -1111,7 +1111,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "tcp_brocker"
+			"value" : "tcp_broker"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -3619,6 +3619,42 @@
 		},
 		{
 			"name" : "tcp_brocker_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/ivanovx/Desktop/tcp-brocker"
+		},
+		{
+			"name" : "tcp_broker_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug"
+		},
+		{
+			"name" : "tcp_broker_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "tcp_broker_SOURCE_DIR",
 			"properties" : 
 			[
 				{

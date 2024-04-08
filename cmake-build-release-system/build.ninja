@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: tcp_broker
-# Configurations: Debug
+# Configurations: Release
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Debug
+CONFIGURATION = Release
 # =============================================================================
 # Include auxiliary files.
 
@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/
+cmake_ninja_workdir = /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/
 # =============================================================================
 # Object build statements for EXECUTABLE target tcp_broker
 
@@ -49,19 +49,19 @@ cmake_ninja_workdir = /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/
 
 build cmake_object_order_depends_target_tcp_broker: phony || tcp_broker_autogen tcp_broker_autogen/mocs_compilation.cpp tcp_broker_autogen/timestamp tcp_broker_autogen_timestamp_deps
 
-build CMakeFiles/tcp_broker.dir/tcp_broker_autogen/mocs_compilation.cpp.o: CXX_COMPILER__tcp_broker_unscanned_Debug /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_tcp_broker
-  DEFINES = -DQT_CORE_LIB
+build CMakeFiles/tcp_broker.dir/tcp_broker_autogen/mocs_compilation.cpp.o: CXX_COMPILER__tcp_broker_unscanned_Release /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/tcp_broker_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_tcp_broker
+  DEFINES = -DQT_CORE_LIB -DQT_NO_DEBUG
   DEP_FILE = CMakeFiles/tcp_broker.dir/tcp_broker_autogen/mocs_compilation.cpp.o.d
-  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always -fPIC
-  INCLUDES = -isystem /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/include -isystem /opt/Qt/6.7.0/gcc_64/include/QtCore -isystem /opt/Qt/6.7.0/gcc_64/include -isystem /opt/Qt/6.7.0/gcc_64/mkspecs/linux-g++
+  FLAGS = -O3 -DNDEBUG -std=gnu++23 -fdiagnostics-color=always -fPIC
+  INCLUDES = -isystem /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/tcp_broker_autogen/include -isystem /opt/Qt/6.7.0/gcc_64/include/QtCore -isystem /opt/Qt/6.7.0/gcc_64/include -isystem /opt/Qt/6.7.0/gcc_64/mkspecs/linux-g++
   OBJECT_DIR = CMakeFiles/tcp_broker.dir
   OBJECT_FILE_DIR = CMakeFiles/tcp_broker.dir/tcp_broker_autogen
 
-build CMakeFiles/tcp_broker.dir/main.cpp.o: CXX_COMPILER__tcp_broker_unscanned_Debug /home/ivanovx/Desktop/tcp-brocker/main.cpp || cmake_object_order_depends_target_tcp_broker
-  DEFINES = -DQT_CORE_LIB
+build CMakeFiles/tcp_broker.dir/main.cpp.o: CXX_COMPILER__tcp_broker_unscanned_Release /home/ivanovx/Desktop/tcp-brocker/main.cpp || cmake_object_order_depends_target_tcp_broker
+  DEFINES = -DQT_CORE_LIB -DQT_NO_DEBUG
   DEP_FILE = CMakeFiles/tcp_broker.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always -fPIC
-  INCLUDES = -isystem /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/include -isystem /opt/Qt/6.7.0/gcc_64/include/QtCore -isystem /opt/Qt/6.7.0/gcc_64/include -isystem /opt/Qt/6.7.0/gcc_64/mkspecs/linux-g++
+  FLAGS = -O3 -DNDEBUG -std=gnu++23 -fdiagnostics-color=always -fPIC
+  INCLUDES = -isystem /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/tcp_broker_autogen/include -isystem /opt/Qt/6.7.0/gcc_64/include/QtCore -isystem /opt/Qt/6.7.0/gcc_64/include -isystem /opt/Qt/6.7.0/gcc_64/mkspecs/linux-g++
   OBJECT_DIR = CMakeFiles/tcp_broker.dir
   OBJECT_FILE_DIR = CMakeFiles/tcp_broker.dir
 
@@ -73,8 +73,8 @@ build CMakeFiles/tcp_broker.dir/main.cpp.o: CXX_COMPILER__tcp_broker_unscanned_D
 #############################################
 # Link the executable tcp_broker
 
-build tcp_broker: CXX_EXECUTABLE_LINKER__tcp_broker_Debug CMakeFiles/tcp_broker.dir/tcp_broker_autogen/mocs_compilation.cpp.o CMakeFiles/tcp_broker.dir/main.cpp.o | /opt/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0 || tcp_broker_autogen tcp_broker_autogen_timestamp_deps
-  FLAGS = -g
+build tcp_broker: CXX_EXECUTABLE_LINKER__tcp_broker_Release CMakeFiles/tcp_broker.dir/tcp_broker_autogen/mocs_compilation.cpp.o CMakeFiles/tcp_broker.dir/main.cpp.o | /opt/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0 || tcp_broker_autogen tcp_broker_autogen_timestamp_deps
+  FLAGS = -O3 -DNDEBUG
   LINK_LIBRARIES = -Wl,-rpath,/opt/Qt/6.7.0/gcc_64/lib  /opt/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0
   OBJECT_DIR = CMakeFiles/tcp_broker.dir
   POST_BUILD = :
@@ -87,7 +87,7 @@ build tcp_broker: CXX_EXECUTABLE_LINKER__tcp_broker_Debug CMakeFiles/tcp_broker.
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -98,7 +98,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/ivanovx/Desktop/tcp-brocker -B/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug
+  COMMAND = cd /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/ivanovx/Desktop/tcp-brocker -B/home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -122,9 +122,9 @@ build tcp_broker_autogen: phony CMakeFiles/tcp_broker_autogen tcp_broker_autogen
 # Custom command for tcp_broker_autogen/timestamp
 
 build tcp_broker_autogen/timestamp tcp_broker_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}tcp_broker_autogen/timestamp ${cmake_ninja_workdir}tcp_broker_autogen/mocs_compilation.cpp: CUSTOM_COMMAND /opt/Qt/6.7.0/gcc_64/./libexec/moc || tcp_broker_autogen_timestamp_deps
-  COMMAND = cd /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake -E cmake_autogen /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/CMakeFiles/tcp_broker_autogen.dir/AutogenInfo.json Debug && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake -E touch /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/timestamp && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /home/ivanovx/Desktop/tcp-brocker /home/ivanovx/Desktop/tcp-brocker /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/deps /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/CMakeFiles/d/8c60bb17db5090d7e4febfae41ff36d7df49ed06c2d38d5337b55db69a599997.d
+  COMMAND = cd /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake -E cmake_autogen /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/CMakeFiles/tcp_broker_autogen.dir/AutogenInfo.json Release && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake -E touch /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/tcp_broker_autogen/timestamp && /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/linux/x64/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /home/ivanovx/Desktop/tcp-brocker /home/ivanovx/Desktop/tcp-brocker /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/tcp_broker_autogen/deps /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/CMakeFiles/d/e2bb72479250f4e06c583fd472ba1bab2e9dd3383e76621b83920869f50c8d66.d
   DESC = Automatic MOC and UIC for target tcp_broker
-  depfile = /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/CMakeFiles/d/8c60bb17db5090d7e4febfae41ff36d7df49ed06c2d38d5337b55db69a599997.d
+  depfile = /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system/CMakeFiles/d/e2bb72479250f4e06c583fd472ba1bab2e9dd3383e76621b83920869f50c8d66.d
   restat = 1
 
 
@@ -148,7 +148,7 @@ build CMakeFiles/tcp_broker_autogen | ${cmake_ninja_workdir}CMakeFiles/tcp_broke
 # =============================================================================
 
 #############################################
-# Folder: /home/ivanovx/Desktop/tcp-brocker/cmake-build-debug
+# Folder: /home/ivanovx/Desktop/tcp-brocker/cmake-build-release-system
 
 build all: phony tcp_broker
 
@@ -173,7 +173,7 @@ build /home/ivanovx/.local/share/JetBrains/Toolbox/apps/clion-nova/bin/cmake/lin
 # Clean additional files.
 
 build CMakeFiles/clean.additional: CLEAN_ADDITIONAL
-  CONFIG = Debug
+  CONFIG = Release
 
 
 #############################################

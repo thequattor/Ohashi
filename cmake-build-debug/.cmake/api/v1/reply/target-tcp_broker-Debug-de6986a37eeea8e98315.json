@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "tcp_brocker"
+			"path" : "tcp_broker"
 		}
 	],
 	"backtrace" : 1,
@@ -103,7 +103,7 @@
 				{
 					"backtrace" : 0,
 					"isSystem" : true,
-					"path" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/include"
+					"path" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_broker_autogen/include"
 				},
 				{
 					"backtrace" : 9,
@@ -141,14 +141,14 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "tcp_brocker_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"id" : "tcp_broker_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 0,
-			"id" : "tcp_brocker_autogen::@6890427a1f51a3e7e1df"
+			"id" : "tcp_broker_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "tcp_brocker::@6890427a1f51a3e7e1df",
+	"id" : "tcp_broker::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -173,8 +173,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "tcp_brocker",
-	"nameOnDisk" : "tcp_brocker",
+	"name" : "tcp_broker",
+	"nameOnDisk" : "tcp_broker",
 	"paths" : 
 	{
 		"build" : ".",
@@ -211,7 +211,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/tcp_brocker_autogen/mocs_compilation.cpp",
+			"path" : "cmake-build-debug/tcp_broker_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -223,13 +223,13 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/tcp_brocker_autogen/timestamp",
+			"path" : "cmake-build-debug/tcp_broker_autogen/timestamp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/tcp_brocker_autogen/timestamp.rule",
+			"path" : "cmake-build-debug/tcp_broker_autogen/timestamp.rule",
 			"sourceGroupIndex" : 2
 		}
 	],

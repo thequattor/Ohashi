@@ -1,8 +1,20 @@
 # ninja log v5
 11	30	1712569890849572639	tcp_brocker_autogen/mocs_compilation.cpp	b2e74b508821515a
-51	107	1712569047578787678	CMakeFiles/tcp_brocker.dir/tcp_brocker_autogen/mocs_compilation.cpp.o	2a8181955862f5df
+4585	8655	1712570577832641456	CMakeFiles/tcp_broker.dir/common.cpp.o	317c577ed61f5dc4
+3	256	1712576357990991320	build.ninja	e9460175cbf22
+5	23	1712576146344921943	tcp_broker_autogen/mocs_compilation.cpp	98519c600a6abc7f
+9695	9953	1712570579143656729	tcp_broker	e730fdb6330030bc
 11	30	1712569890849572639	tcp_brocker_autogen/timestamp	b2e74b508821515a
+5	23	1712576146344921943	/home/ivanovx/Desktop/tcp-broker/cmake-build-debug/tcp_broker_autogen/timestamp	98519c600a6abc7f
+5	23	1712576146344921943	/home/ivanovx/Desktop/tcp-broker/cmake-build-debug/tcp_broker_autogen/mocs_compilation.cpp	98519c600a6abc7f
+768	4581	1712570573755593960	CMakeFiles/tcp_broker.dir/tcp_broker_autogen/mocs_compilation.cpp.o	1ebe8606ff4132a1
+5	23	1712576146344921943	tcp_broker_autogen/timestamp	98519c600a6abc7f
 4873	5101	1712569052572848663	tcp_brocker	3b98ddd0e40f5180
-52	4870	1712569052332845732	CMakeFiles/tcp_brocker.dir/main.cpp.o	c40de211052514ba
-11	30	1712569890849572639	/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/mocs_compilation.cpp	b2e74b508821515a
-11	30	1712569890849572639	/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug/tcp_brocker_autogen/timestamp	b2e74b508821515a
+769	6315	1712570575489614161	CMakeFiles/tcp_broker.dir/main.cpp.o	b4d23be140a4d52b
+6022	9695	1712570578874653595	CMakeFiles/tcp_broker.dir/tcp_server.cpp.o	d4788b825ae6f543
+769	6022	1712570575201610805	CMakeFiles/tcp_broker.dir/tcp_client.cpp.o	d6e94699fd0d0ba
+14	116	1712576357990991320	build.ninja	e9460175cbf22
+7	29	1712576358035991688	tcp_broker_autogen/timestamp	98519c600a6abc7f
+7	29	1712576358035991688	tcp_broker_autogen/mocs_compilation.cpp	98519c600a6abc7f
+7	29	1712576358035991688	/home/ivanovx/Desktop/tcp-broker/cmake-build-debug/tcp_broker_autogen/timestamp	98519c600a6abc7f
+7	29	1712576358035991688	/home/ivanovx/Desktop/tcp-broker/cmake-build-debug/tcp_broker_autogen/mocs_compilation.cpp	98519c600a6abc7f

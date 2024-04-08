@@ -8,9 +8,11 @@ set(CMAKE_AUTOUIC ON)
 
 set(CMAKE_PREFIX_PATH "/opt/Qt/6.7.0/gcc_64")
 
-find_package(Qt6 COMPONENTS Core REQUIRED)
+find_package(Qt6 COMPONENTS Core Network REQUIRED)
 
-add_executable(tcp_broker main.cpp)
+add_executable(tcp_broker main.cpp
+        tcp_client.cpp
+        common.cpp
+        tcp_server.cpp)
 
-target_link_libraries(tcp_broker Qt::Core)
-
+target_link_libraries(tcp_broker Qt6::Core Qt6::Network)

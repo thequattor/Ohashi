@@ -12,7 +12,7 @@
             </PerProfileState>
           </value>
         </entry>
-        <entry key="Release-System">
+        <entry key="Release">
           <value>
             <PerProfileState>
               <option name="myQmlPath" value="/opt/Qt/6.7.0/gcc_64/./qml" />

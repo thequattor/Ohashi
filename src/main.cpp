@@ -1,6 +1,6 @@
 #include <QDebug>
-#include <QCoreApplication>
 #include <QObject>
+#include <QCoreApplication>
 
 #include "version.h"
 #include "tcp_server.h"
@@ -9,6 +9,7 @@
 int main(int argc, char *argv[]) {
     tcp_server *srv = nullptr;
     tcp_client *client = nullptr;
+
     QStringList args;
     QString param_name;
     QString host_ip_str;
@@ -16,6 +17,7 @@ int main(int argc, char *argv[]) {
     QString remote_ip_str;
     QString remote_port_str = "5533";
     QCoreApplication a(argc, argv);
+
     int arg_sz;
     bool disconnect_event = 0;
     bool client_mode = 0;
@@ -35,29 +37,24 @@ int main(int argc, char *argv[]) {
             param_name = args.at(i);
             param_name.section('-', 1, 1);
 
-            if(param_name.contains('p') || param_name.contains("port")){
-                if(i+1 < arg_sz){
+            if (param_name.contains('p') || param_name.contains("port")) {
+                if (i+1 < arg_sz) {
                     host_port_str = args.at(i+1);
                 }
-            }
-            else if(param_name.contains('i') || param_name.contains("ip_addr")){
-                if(i+1 < arg_sz){
+            } else if(param_name.contains('i') || param_name.contains("ip_addr")){
+                if (i+1 < arg_sz) {
                     host_ip_str = args.at(i+1);
                 }
-            }
-            else if(param_name.contains('d') || param_name.contains("disconnect_event")){
+            } else if(param_name.contains('d') || param_name.contains("disconnect_event")) {
                 disconnect_event = 1;
-            }
-            else if(param_name.contains('c') || param_name.contains("client_mode")){
+            } else if(param_name.contains('c') || param_name.contains("client_mode")) {
                 client_mode = 1;
-            }
-            else if(param_name.contains('r') || param_name.contains("remote_server_ip")){
-                if(i+1 < arg_sz){
+            } else if(param_name.contains('r') || param_name.contains("remote_server_ip")) {
+                if ( i+1 < arg_sz) {
                     remote_ip_str = args.at(i+1);
                 }
-            }
-            else if(param_name.contains('o') || param_name.contains("remote_server_port")){
-                if(i+1 < arg_sz){
+            } else if(param_name.contains('o') || param_name.contains("remote_server_port")){
+                if (i+1 < arg_sz) {
                     remote_port_str = args.at(i+1);
                 }
             }
@@ -78,18 +75,18 @@ int main(int argc, char *argv[]) {
 
     srv = new tcp_server;
 
-    if(srv){
+    if (srv) {
         srv->start_server(host_ip_str, host_port_str, disconnect_event, client_mode);
     }
 
-    if(client_mode){
+    if (client_mode) {
         client = new tcp_client;
 
-        if(client){
+        if (client) {
             client->start_client(remote_ip_str, remote_port_str, disconnect_event);
         }
 
-        if(srv && client){
+        if (srv && client) {
             QObject::connect(client, SIGNAL(recv_from_remote_server(QByteArray &)), srv, SLOT(on_recv_from_remote_server(QByteArray &)));
             QObject::connect(srv, SIGNAL(send_to_remote_server(QByteArray &)), client, SLOT(on_send_to_remote_server(QByteArray &)));
             QObject::connect(client, SIGNAL(server_closed_the_connection()), srv, SLOT(on_server_closed_the_connection()));

@@ -2,9 +2,10 @@
 #define COMMON_H
 
 #include <iostream>
+
 #include <QChar>
-#include <QByteArray>
 #include <QDebug>
+#include <QByteArray>
 
 void display_byte_array(QByteArray &hex_data);
 

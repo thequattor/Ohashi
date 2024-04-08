@@ -4,8 +4,8 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_executable(tcp_broker main.cpp
-        tcp_client.cpp
         common.cpp
+        tcp_client.cpp
         tcp_server.cpp)
 
 target_link_libraries(tcp_broker

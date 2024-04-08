@@ -6,7 +6,7 @@
 #include "tcp_server.h"
 #include "tcp_client.h"
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
     tcp_server *srv = nullptr;
     tcp_client *client = nullptr;
     QStringList args;

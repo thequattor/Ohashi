@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "tcp_brocker",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "tcp_brocker::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tcp_brocker-Debug-e90df7813fcc364687cd.json",
+					"name" : "tcp_brocker",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tcp_brocker_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tcp_brocker_autogen-Debug-59aad66946bef7ea98ba.json",
+					"name" : "tcp_brocker_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tcp_brocker_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tcp_brocker_autogen_timestamp_deps-Debug-026f2645aad46e9e5078.json",
+					"name" : "tcp_brocker_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ivanovx/Desktop/tcp-brocker/cmake-build-debug",
+		"source" : "/home/ivanovx/Desktop/tcp-brocker"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

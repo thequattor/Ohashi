@@ -1,5 +1,0 @@
-/home/ivanovx/Desktop/tcp-broker/cmake-build-release/CMakeFiles/tcp_broker.dir
-/home/ivanovx/Desktop/tcp-broker/cmake-build-release/CMakeFiles/edit_cache.dir
-/home/ivanovx/Desktop/tcp-broker/cmake-build-release/CMakeFiles/rebuild_cache.dir
-/home/ivanovx/Desktop/tcp-broker/cmake-build-release/CMakeFiles/tcp_broker_autogen_timestamp_deps.dir
-/home/ivanovx/Desktop/tcp-broker/cmake-build-release/CMakeFiles/tcp_broker_autogen.dir

@@ -1,15 +1,17 @@
 #ifndef TCP_SERVER_H
 #define TCP_SERVER_H
 
-#include <QTcpServer>
-#include <QNetworkInterface>
 #include <QObject>
+#include <QTcpServer>
 #include <QTcpSocket>
 #include <QXmlStreamReader>
+#include <QNetworkInterface>
+
 #include "common.h"
 
-class tcp_server : public QObject{
+class TcpServer : public QObject{
     Q_OBJECT
+
 private:
     QTcpServer *tcpsrv;
     QTcpSocket *client_sock_0;
@@ -25,8 +27,8 @@ private:
     friend void display_byte_array(QByteArray &hex_data);
 
 public:
-    tcp_server();
-    ~tcp_server();
+    TcpServer();
+    ~TcpServer();
     int start_server(QString &ip, QString &port, bool disconn_event, bool cli_mode);
     void close_client_socket_0();
     void close_client_socket_1();

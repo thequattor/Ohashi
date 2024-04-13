@@ -6,8 +6,9 @@
 #include <QTcpSocket>
 #include "common.h"
 
-class tcp_client: public QObject{
+class TcpClient : public QObject {
     Q_OBJECT
+
 private:
     QTcpSocket *client_sock;
     bool disconnect_event;
@@ -17,8 +18,8 @@ private:
     friend void display_byte_array(QByteArray &hex_data);
 
 public:
-    tcp_client();
-    ~tcp_client();
+    TcpClient();
+    ~TcpClient();
     int start_client(QString &ip, QString &port, bool disconn_event);
 
 signals:

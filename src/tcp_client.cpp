@@ -1,29 +1,30 @@
 #include "tcp_client.h"
 
-tcp_client::tcp_client(){
+TcpClient::TcpClient() {
     client_sock = nullptr;
 }
 
-tcp_client::~tcp_client(){
+TcpClient::~TcpClient() {
     disconnect_signals();
 }
 
-void tcp_client::disconnect_signals(){
-    if(client_sock){
+void TcpClient::disconnect_signals() {
+    if (client_sock) {
         disconnect(client_sock, SIGNAL(connected()), this, SLOT(on_connected()));
         disconnect(client_sock, SIGNAL(disconnected()), client_sock, SLOT(deleteLater()));
         disconnect(client_sock, SIGNAL(disconnected()), this, SLOT(on_closed_connection()));
         disconnect(client_sock, SIGNAL(readyRead()), this, SLOT(on_ready_read()));
         disconnect(client_sock, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), this, SLOT(on_error(QAbstractSocket::SocketError)));
+
         client_sock->disconnectFromHost();
         client_sock = nullptr;
     }
 }
 
-int tcp_client::start_client(QString &ip, QString &port, bool disconn_event){
+int TcpClient::start_client(QString &ip, QString &port, bool disconn_event) {
     bool ok;
 
-    if(!client_sock){
+    if (!client_sock) {
         client_sock = new QTcpSocket(this);
 
         connect(client_sock, SIGNAL(connected()), this, SLOT(on_connected()));
@@ -32,13 +33,13 @@ int tcp_client::start_client(QString &ip, QString &port, bool disconn_event){
         connect(client_sock, SIGNAL(readyRead()), this, SLOT(on_ready_read()));
         connect(client_sock, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), this, SLOT(on_error(QAbstractSocket::SocketError)));
 
-        if(ip.isEmpty()){
-            qDebug()<<"(tcp_client) No remote ip specified! Using localhost ...";
+        if (ip.isEmpty()) {
+            qDebug() << "(tcp_client) No remote ip specified! Using localhost ...";
             ip = "127.0.0.1";
         }
 
-        if(port.isEmpty()){
-            qDebug()<<"(tcp_client) No remote port specified! Using 5533 ...";
+        if (port.isEmpty()) {
+            qDebug() << "(tcp_client) No remote port specified! Using 5533 ...";
             ip = "127.0.0.1";
         }
 
@@ -50,18 +51,19 @@ int tcp_client::start_client(QString &ip, QString &port, bool disconn_event){
     return EXIT_SUCCESS;
 }
 
-void tcp_client::on_connected(){
+void TcpClient::on_connected() {
     qDebug()<<"(tcp_client) Connected to remote server!";
 }
 
-void tcp_client::on_closed_connection(){
+void TcpClient::on_closed_connection() {
     qDebug()<<"(tcp_client) Connection closed!";
-    if(disconnect_event){
+
+    if (disconnect_event) {
         emit server_closed_the_connection();
     }
 }
 
-void tcp_client::on_ready_read(){
+void TcpClient::on_ready_read() {
     QByteArray recv_msg;
 
     recv_msg = client_sock->readAll();
@@ -72,14 +74,14 @@ void tcp_client::on_ready_read(){
     emit recv_from_remote_server(recv_msg);
 }
 
-void tcp_client::on_error(QAbstractSocket::SocketError err){
+void TcpClient::on_error(QAbstractSocket::SocketError err) {
     qDebug()<<"(tcp_client) Remote server err: "<<err;
 }
 
-void tcp_client::on_send_to_remote_server(QByteArray &msg){
+void TcpClient::on_send_to_remote_server(QByteArray &msg) {
     client_sock->write(msg);
 }
 
-void tcp_client::on_client_closed_the_connection(){
+void TcpClient::on_client_closed_the_connection() {
     disconnect_signals();
 }

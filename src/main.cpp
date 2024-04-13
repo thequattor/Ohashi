@@ -7,8 +7,11 @@
 #include "tcp_client.h"
 
 int main(int argc, char *argv[]) {
-    tcp_server *srv = nullptr;
-    tcp_client *client = nullptr;
+    //tcp_server *srv = nullptr;
+    //tcp_client *client = nullptr;
+
+    TcpClient *client = nullptr;
+    TcpServer *srv = nullptr;
 
     QStringList args;
     QString param_name;
@@ -22,14 +25,14 @@ int main(int argc, char *argv[]) {
     bool disconnect_event = 0;
     bool client_mode = 0;
 
-    qDebug() << "\n";
-    qDebug() << "TCP BROKER v" << TCP_BRIDGE_VERSION << "." <<TCP_BRIDGE_SUBVERSION;
-    qDebug() << "\n";
+    //qDebug() << "\n";
+    //qDebug() << "TCP BROKER v" << TCP_BRIDGE_VERSION << "." <<TCP_BRIDGE_SUBVERSION;
+    //qDebug() << "\n";
 
     args = a.arguments();
     args.takeFirst();
 
-    qDebug()<<"args: "<<args;
+    qDebug() << "args: " << args;
 
     arg_sz = args.size();
     for(int i = 0; i < arg_sz; i++){
@@ -73,14 +76,14 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    srv = new tcp_server;
+    srv = new TcpServer();
 
     if (srv) {
         srv->start_server(host_ip_str, host_port_str, disconnect_event, client_mode);
     }
 
     if (client_mode) {
-        client = new tcp_client;
+        client = new TcpClient();
 
         if (client) {
             client->start_client(remote_ip_str, remote_port_str, disconnect_event);

@@ -1,4 +1,4 @@
-#include <QDebug>
+//<<#include <QDebug>
 #include <QObject>
 #include <QCoreApplication>
 
@@ -81,23 +81,23 @@ int main(int argc, char *argv[]) {
 
     TcpServer *srv = new TcpServer();
 
-    if (srv) {
+    //if (srv) {
         srv->start_server(host_ip_str, host_port_str, disconnect_event, client_mode);
-    }
+    //}
 
     if (client_mode) {
         TcpClient *client = new TcpClient();
 
-        if (client) {
+        //if (client) {
             client->start_client(remote_ip_str, remote_port_str, disconnect_event);
-        }
+        //}
 
-        if (srv && client) {
+        //if (srv && client) {
             QObject::connect(client, SIGNAL(recv_from_remote_server(QByteArray &)), srv, SLOT(on_recv_from_remote_server(QByteArray &)));
             QObject::connect(srv, SIGNAL(send_to_remote_server(QByteArray &)), client, SLOT(on_send_to_remote_server(QByteArray &)));
             QObject::connect(client, SIGNAL(server_closed_the_connection()), srv, SLOT(on_server_closed_the_connection()));
             QObject::connect(srv, SIGNAL(client_closed_the_connection()), client, SLOT(on_client_closed_the_connection()));
-        }
+        //}
     }
 
     return app.exec();

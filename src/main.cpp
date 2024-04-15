@@ -34,12 +34,12 @@ int main(int argc, char *argv[]) {
 
     args.takeFirst();
 
-    qDebug() << "args: " << args;
+    //qDebug() << "args: " << args;
 
     int arg_sz = args.size();
 
-    for(int i = 0; i < arg_sz; i++){
-        if(args.at(i).contains('-')){
+    for (int i = 0; i < arg_sz; i++) {
+        if (args.at(i).contains('-')) {
             param_name = args.at(i);
             param_name.section('-', 1, 1);
 
@@ -47,19 +47,19 @@ int main(int argc, char *argv[]) {
                 if (i+1 < arg_sz) {
                     host_port_str = args.at(i+1);
                 }
-            } else if(param_name.contains('i') || param_name.contains("ip_addr")){
+            } else if (param_name.contains('i') || param_name.contains("ip_addr")){
                 if (i+1 < arg_sz) {
                     host_ip_str = args.at(i+1);
                 }
-            } else if(param_name.contains('d') || param_name.contains("disconnect_event")) {
+            } else if (param_name.contains('d') || param_name.contains("disconnect_event")) {
                 disconnect_event = 1;
-            } else if(param_name.contains('c') || param_name.contains("client_mode")) {
+            } else if (param_name.contains('c') || param_name.contains("client_mode")) {
                 client_mode = 1;
-            } else if(param_name.contains('r') || param_name.contains("remote_server_ip")) {
+            } else if (param_name.contains('r') || param_name.contains("remote_server_ip")) {
                 if ( i+1 < arg_sz) {
                     remote_ip_str = args.at(i+1);
                 }
-            } else if(param_name.contains('o') || param_name.contains("remote_server_port")){
+            } else if (param_name.contains('o') || param_name.contains("remote_server_port")){
                 if (i+1 < arg_sz) {
                     remote_port_str = args.at(i+1);
                 }
@@ -68,13 +68,13 @@ int main(int argc, char *argv[]) {
     }
 
     if (args.isEmpty()) {
-        qDebug()<<"Usage: ./tcp_broker [OPTIONS] where [OPTIONS] is one of the following: ";
-        qDebug()<<"-p or -port [0 - 65535]: the port of the host server to listen to for incoming connections.";
-        qDebug()<<"-i or -ip_addr [xxx.xxx.xxx.xxx]: the ip address of the host server and its network interface.";
-        qDebug()<<"-c or -client_mode: enable a client that will connect to a remote server";
-        qDebug()<<"-r or -remote_server_ip: the ip address of the remote server (use with -c)";
-        qDebug()<<"-o or -remote_server_port: the port of the remote server (use with -c)";
-        qDebug()<<"-d or -disconnect_event: enable the bridging of a disconnect events from either of the hosts";
+        qDebug() << "Usage: ./tcp_broker [OPTIONS] where [OPTIONS] is one of the following: ";
+        qDebug() << "-p or -port [0 - 65535]: the port of the host server to listen to for incoming connections.";
+        qDebug() << "-i or -ip_addr [xxx.xxx.xxx.xxx]: the ip address of the host server and its network interface.";
+        qDebug() << "-c or -client_mode: enable a client that will connect to a remote server";
+        qDebug() << "-r or -remote_server_ip: the ip address of the remote server (use with -c)";
+        qDebug() << "-o or -remote_server_port: the port of the remote server (use with -c)";
+        qDebug() << "-d or -disconnect_event: enable the bridging of a disconnect events from either of the hosts";
 
         return EXIT_FAILURE;
     }

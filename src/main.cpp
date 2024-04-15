@@ -10,8 +10,8 @@ int main(int argc, char *argv[]) {
     //tcp_server *srv = nullptr;
     //tcp_client *client = nullptr;
 
-    TcpServer *srv = nullptr;
-    TcpClient *client = nullptr;
+    //TcpServer *srv = nullptr;
+    //TcpClient *client = nullptr;
 
     QString param_name;
     QString host_ip_str;
@@ -21,8 +21,8 @@ int main(int argc, char *argv[]) {
 
     QCoreApplication app(argc, argv);
 
-    bool disconnect_event = 0;
-    bool client_mode = 0;
+    bool disconnect_event = false;
+    bool client_mode = false;
 
     //qDebug() << "\n";
     //qDebug() << "TCP BROKER v" << TCP_BRIDGE_VERSION << "." <<TCP_BRIDGE_SUBVERSION;
@@ -52,9 +52,9 @@ int main(int argc, char *argv[]) {
                     host_ip_str = args.at(i+1);
                 }
             } else if (param_name.contains('d') || param_name.contains("disconnect_event")) {
-                disconnect_event = 1;
+                disconnect_event = true;
             } else if (param_name.contains('c') || param_name.contains("client_mode")) {
-                client_mode = 1;
+                client_mode = true;
             } else if (param_name.contains('r') || param_name.contains("remote_server_ip")) {
                 if ( i+1 < arg_sz) {
                     remote_ip_str = args.at(i+1);
@@ -79,14 +79,14 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    srv = new TcpServer();
+    TcpServer *srv = new TcpServer();
 
     if (srv) {
         srv->start_server(host_ip_str, host_port_str, disconnect_event, client_mode);
     }
 
     if (client_mode) {
-        client = new TcpClient();
+        TcpClient *client = new TcpClient();
 
         if (client) {
             client->start_client(remote_ip_str, remote_port_str, disconnect_event);

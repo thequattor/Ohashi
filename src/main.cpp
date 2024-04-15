@@ -2,7 +2,7 @@
 #include <QObject>
 #include <QCoreApplication>
 
-#include "version.h"
+//#include "version.h"
 #include "tcp_server.h"
 #include "tcp_client.h"
 
@@ -10,18 +10,17 @@ int main(int argc, char *argv[]) {
     //tcp_server *srv = nullptr;
     //tcp_client *client = nullptr;
 
-    TcpClient *client = nullptr;
     TcpServer *srv = nullptr;
+    TcpClient *client = nullptr;
 
-    QStringList args;
     QString param_name;
     QString host_ip_str;
     QString host_port_str = "5533";
     QString remote_ip_str;
     QString remote_port_str = "5533";
-    QCoreApplication a(argc, argv);
 
-    int arg_sz;
+    QCoreApplication app(argc, argv);
+
     bool disconnect_event = 0;
     bool client_mode = 0;
 
@@ -29,12 +28,16 @@ int main(int argc, char *argv[]) {
     //qDebug() << "TCP BROKER v" << TCP_BRIDGE_VERSION << "." <<TCP_BRIDGE_SUBVERSION;
     //qDebug() << "\n";
 
-    args = a.arguments();
+    //args = a.arguments();
+
+    QStringList args = app.arguments();
+
     args.takeFirst();
 
     qDebug() << "args: " << args;
 
-    arg_sz = args.size();
+    int arg_sz = args.size();
+
     for(int i = 0; i < arg_sz; i++){
         if(args.at(i).contains('-')){
             param_name = args.at(i);
@@ -65,7 +68,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (args.isEmpty()) {
-        qDebug()<<"Usage: ./tcp_bridge [OPTIONS] where [OPTIONS] is one of the following: ";
+        qDebug()<<"Usage: ./tcp_broker [OPTIONS] where [OPTIONS] is one of the following: ";
         qDebug()<<"-p or -port [0 - 65535]: the port of the host server to listen to for incoming connections.";
         qDebug()<<"-i or -ip_addr [xxx.xxx.xxx.xxx]: the ip address of the host server and its network interface.";
         qDebug()<<"-c or -client_mode: enable a client that will connect to a remote server";
@@ -97,5 +100,5 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    return a.exec();
+    return app.exec();
 }

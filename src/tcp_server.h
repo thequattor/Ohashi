@@ -9,13 +9,14 @@
 
 #include "common.h"
 
-class TcpServer : public QObject{
+class TcpServer : public QObject {
     Q_OBJECT
 
 private:
-    QTcpServer *tcpsrv;
-    QTcpSocket *client_sock_0;
-    QTcpSocket *client_sock_1;
+    QTcpServer *tcpServer;
+    QTcpSocket *tcpSocketFirstClient;
+    QTcpSocket *tcpSocketSecondClient;
+
     int client_0_connected;
     int client_1_connected;
     int client_last_active;

@@ -4,16 +4,17 @@
 #include <QObject>
 #include <QString>
 #include <QTcpSocket>
+
 #include "common.h"
 
 class TcpClient : public QObject {
     Q_OBJECT
 
 private:
-    QTcpSocket *client_sock;
-    bool disconnect_event;
+    QTcpSocket *clientSock;
+    bool disconnectEvent;
 
-    void disconnect_signals();
+    void disconnectSignals();
 
     friend void display_byte_array(QByteArray &hex_data);
 

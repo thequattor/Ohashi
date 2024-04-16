@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void display_byte_array(QByteArray &hex_data){
+void display_byte_array(QByteArray &hex_data) {
     qDebug() << "======================================";
     qDebug() << hex_data.toHex(' ');
     qDebug() << "\n--------------------------------------\n";

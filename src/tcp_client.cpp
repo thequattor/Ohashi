@@ -1,40 +1,41 @@
 #include "tcp_client.h"
 
 TcpClient::TcpClient() {
-    client_sock = nullptr;
+    this->clientSock = nullptr;
 }
 
 TcpClient::~TcpClient() {
-    disconnect_signals();
+    disconnectSignals();
 }
 
-void TcpClient::disconnect_signals() {
-    if (client_sock) {
-        disconnect(client_sock, SIGNAL(connected()), this, SLOT(on_connected()));
-        disconnect(client_sock, SIGNAL(disconnected()), client_sock, SLOT(deleteLater()));
-        disconnect(client_sock, SIGNAL(disconnected()), this, SLOT(on_closed_connection()));
-        disconnect(client_sock, SIGNAL(readyRead()), this, SLOT(on_ready_read()));
-        disconnect(client_sock, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), this, SLOT(on_error(QAbstractSocket::SocketError)));
+void TcpClient::disconnectSignals() {
+    if ( this->clientSock) {
+        disconnect(  this->clientSock, SIGNAL(connected()), this, SLOT(on_connected()));
+        disconnect(  this->clientSock, SIGNAL(disconnected()), this->clientSock, SLOT(deleteLater()));
+        disconnect(this->clientSock, SIGNAL(disconnected()), this, SLOT(on_closed_connection()));
+        disconnect(this->clientSock, SIGNAL(readyRead()), this, SLOT(on_ready_read()));
+        disconnect(this->clientSock, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), this, SLOT(on_error(QAbstractSocket::SocketError)));
 
-        client_sock->disconnectFromHost();
-        client_sock = nullptr;
+        this->clientSock->disconnectFromHost();
+        this->clientSock = nullptr;
     }
 }
 
 int TcpClient::start_client(QString &ip, QString &port, bool disconn_event) {
     bool ok;
 
-    if (!client_sock) {
-        client_sock = new QTcpSocket(this);
+    if (!this->clientSock) {
+        this->clientSock = new QTcpSocket(this);
 
-        connect(client_sock, SIGNAL(connected()), this, SLOT(on_connected()));
-        connect(client_sock, SIGNAL(disconnected()), client_sock, SLOT(deleteLater()));
-        connect(client_sock, SIGNAL(disconnected()), this, SLOT(on_closed_connection()));
-        connect(client_sock, SIGNAL(readyRead()), this, SLOT(on_ready_read()));
-        connect(client_sock, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), this, SLOT(on_error(QAbstractSocket::SocketError)));
+        connect(this->clientSock, SIGNAL(connected()), this, SLOT(on_connected()));
+        connect(this->clientSock, SIGNAL(disconnected()), this->clientSock, SLOT(deleteLater()));
+        connect(this->clientSock, SIGNAL(disconnected()), this, SLOT(on_closed_connection()));
+        connect(this->clientSock, SIGNAL(readyRead()), this, SLOT(on_ready_read()));
+        connect(this->clientSock, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), this, SLOT(on_error(QAbstractSocket::SocketError)));
 
         if (ip.isEmpty()) {
             qDebug() << "(tcp_client) No remote ip specified! Using localhost ...";
+
             ip = "127.0.0.1";
         }
 
@@ -43,45 +44,43 @@ int TcpClient::start_client(QString &ip, QString &port, bool disconn_event) {
             ip = "127.0.0.1";
         }
 
-        client_sock->connectToHost(ip, port.toUInt(&ok, 10));
+        this->clientSock->connectToHost(ip, port.toUInt(&ok, 10));
     }
 
-    disconnect_event = disconn_event;
+    this->disconnectEvent = disconn_event;
 
     return EXIT_SUCCESS;
 }
 
 void TcpClient::on_connected() {
-    qDebug()<<"(tcp_client) Connected to remote server!";
+    qDebug() << "(tcp_client) Connected to remote server!";
 }
 
 void TcpClient::on_closed_connection() {
-    qDebug()<<"(tcp_client) Connection closed!";
+    qDebug() << "(tcp_client) Connection closed!";
 
-    if (disconnect_event) {
+    if (this->disconnectEvent) {
         emit server_closed_the_connection();
     }
 }
 
 void TcpClient::on_ready_read() {
-    QByteArray recv_msg;
+    QByteArray recv_msg = this->clientSock->readAll();
 
-    recv_msg = client_sock->readAll();
-
-    qDebug()<<"(tcp_client) ";
+    qDebug() << "(tcp_client) ";
     display_byte_array(recv_msg);
 
     emit recv_from_remote_server(recv_msg);
 }
 
 void TcpClient::on_error(QAbstractSocket::SocketError err) {
-    qDebug()<<"(tcp_client) Remote server err: "<<err;
+    qDebug() << "(tcp_client) Remote server err: "<<err;
 }
 
 void TcpClient::on_send_to_remote_server(QByteArray &msg) {
-    client_sock->write(msg);
+    this->clientSock->write(msg);
 }
 
 void TcpClient::on_client_closed_the_connection() {
-    disconnect_signals();
+    disconnectSignals();
 }

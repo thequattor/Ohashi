@@ -2,9 +2,11 @@
 #include <QObject>
 #include <QCoreApplication>
 
-//#include "version.h"
 #include "tcp_server.h"
 #include "tcp_client.h"
+
+const int TCP_BRIDGE_VERSION = 1;
+const int TCP_BRIDGE_SUBVERSION = 1;
 
 int main(int argc, char *argv[]) {
     //tcp_server *srv = nullptr;
@@ -25,7 +27,7 @@ int main(int argc, char *argv[]) {
     bool client_mode = false;
 
     //qDebug() << "\n";
-    //qDebug() << "TCP BROKER v" << TCP_BRIDGE_VERSION << "." <<TCP_BRIDGE_SUBVERSION;
+    //qDebug() << "TCP BROKER v" <<  << "." <<TCP_BRIDGE_SUBVERSION;
     //qDebug() << "\n";
 
     //args = a.arguments();

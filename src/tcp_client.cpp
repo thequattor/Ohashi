@@ -68,7 +68,7 @@ void TcpClient::on_ready_read() {
     QByteArray recv_msg = this->clientSock->readAll();
 
     qDebug() << "(tcp_client) ";
-    display_byte_array(recv_msg);
+    displayByteArray(recv_msg);
 
     emit recv_from_remote_server(recv_msg);
 }

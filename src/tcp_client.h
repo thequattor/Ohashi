@@ -8,7 +8,7 @@
 #include "common.h"
 
 class TcpClient : public QObject {
-   // Q_OBJECT
+   Q_OBJECT
 
 private:
     QTcpSocket *clientSock;
@@ -16,7 +16,7 @@ private:
 
     void disconnectSignals();
 
-    friend void display_byte_array(QByteArray &hex_data);
+    friend void displayDyteArray(QByteArray &hex_data);
 
 public:
     TcpClient();

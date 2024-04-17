@@ -189,7 +189,7 @@ void TcpServer::on_ready_read_0() {
 
     qDebug() << "(tcp_server) (0)";
 
-    display_byte_array(recv_msg);
+    displayByteArray(recv_msg);
 
     if (client_mode) {
         emit send_to_remote_server(recv_msg);
@@ -228,7 +228,7 @@ void TcpServer::on_ready_read_1() {
 
     qDebug() << "(tcp_server) (1)";
 
-    display_byte_array(recv_msg);
+    displayByteArray(recv_msg);
 
     if (client_mode) {
         emit send_to_remote_server(recv_msg);

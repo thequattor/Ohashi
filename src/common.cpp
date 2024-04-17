@@ -2,10 +2,10 @@
 
 using namespace std;
 
-void display_byte_array(QByteArray &hex_data) {
-    qDebug() << "======================================";
-    qDebug() << hex_data.toHex(' ');
-    qDebug() << "\n--------------------------------------\n";
-    qDebug() << hex_data;
-    qDebug() << "\n======================================\n";
+void displayByteArray(QByteArray &hexData) {
+    qDebug() << string(10, '-');  //<< "======================================";
+    qDebug() << hexData.toHex(' ');
+    qDebug() << string(10, '-');
+    qDebug() << hexData;
+    qDebug() << string(10, '-');
 }

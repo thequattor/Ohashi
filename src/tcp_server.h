@@ -10,7 +10,7 @@
 #include "common.h"
 
 class TcpServer : public QObject {
-    //Q_OBJECT
+    Q_OBJECT
 
 private:
     QTcpServer *tcpServer;
@@ -25,7 +25,7 @@ private:
 
     void connect_signals(int client_number);
     void disconnect_signals(int client_number);
-    friend void display_byte_array(QByteArray &hex_data);
+    friend void displayByteArray(QByteArray &hex_data);
 
 public:
     TcpServer();

@@ -7,6 +7,6 @@
 #include <QDebug>
 #include <QByteArray>
 
-void display_byte_array(QByteArray &hex_data);
+void displayByteArray(QByteArray &hexData);
 
 #endif // COMMON_H

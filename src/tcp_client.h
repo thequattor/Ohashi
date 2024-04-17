@@ -8,7 +8,7 @@
 #include "common.h"
 
 class TcpClient : public QObject {
-    Q_OBJECT
+   // Q_OBJECT
 
 private:
     QTcpSocket *clientSock;

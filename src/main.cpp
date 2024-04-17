@@ -9,22 +9,22 @@ const int TCP_BRIDGE_VERSION = 1;
 const int TCP_BRIDGE_SUBVERSION = 1;
 
 int main(int argc, char *argv[]) {
+    QCoreApplication app(argc, argv);
+
     //tcp_server *srv = nullptr;
     //tcp_client *client = nullptr;
 
     //TcpServer *srv = nullptr;
     //TcpClient *client = nullptr;
 
-    QString param_name;
-    QString host_ip_str;
-    QString host_port_str = "5533";
-    QString remote_ip_str;
-    QString remote_port_str = "5533";
+    QString paramName;
+    QString hostIp;
+    QString hostPort; //= "5533";
+    QString remoteIp; // _ip_str;
+    QString remotePort; //remote_port_str = "5533";
 
-    QCoreApplication app(argc, argv);
-
-    bool disconnect_event = false;
-    bool client_mode = false;
+    bool disconnectEvent = false;
+    bool clientMode = false;
 
     //qDebug() << "\n";
     //qDebug() << "TCP BROKER v" <<  << "." <<TCP_BRIDGE_SUBVERSION;
@@ -42,28 +42,28 @@ int main(int argc, char *argv[]) {
 
     for (int i = 0; i < arg_sz; i++) {
         if (args.at(i).contains('-')) {
-            param_name = args.at(i);
-            param_name.section('-', 1, 1);
+            paramName = args.at(i);
+            paramName.section('-', 1, 1);
 
-            if (param_name.contains('p') || param_name.contains("port")) {
+            if (paramName.contains('p') || paramName.contains("port")) {
                 if (i+1 < arg_sz) {
-                    host_port_str = args.at(i+1);
+                    hostPort = args.at(i+1);
                 }
-            } else if (param_name.contains('i') || param_name.contains("ip_addr")){
+            } else if (paramName.contains('i') || paramName.contains("ip_addr")){
                 if (i+1 < arg_sz) {
-                    host_ip_str = args.at(i+1);
+                    hostIp = args.at(i+1);
                 }
-            } else if (param_name.contains('d') || param_name.contains("disconnect_event")) {
-                disconnect_event = true;
-            } else if (param_name.contains('c') || param_name.contains("client_mode")) {
-                client_mode = true;
-            } else if (param_name.contains('r') || param_name.contains("remote_server_ip")) {
-                if ( i+1 < arg_sz) {
-                    remote_ip_str = args.at(i+1);
-                }
-            } else if (param_name.contains('o') || param_name.contains("remote_server_port")){
+            } else if (paramName.contains('d') || paramName.contains("disconnect_event")) {
+                disconnectEvent = true;
+            } else if (paramName.contains('c') || paramName.contains("client_mode")) {
+                clientMode = true;
+            } else if (paramName.contains('r') || paramName.contains("remote_server_ip")) {
                 if (i+1 < arg_sz) {
-                    remote_port_str = args.at(i+1);
+                    remoteIp = args.at(i+1);
+                }
+            } else if (paramName.contains('o') || paramName.contains("remote_server_port")){
+                if (i+1 < arg_sz) {
+                    remotePort = args.at(i+1);
                 }
             }
         }
@@ -81,24 +81,24 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    TcpServer *srv = new TcpServer();
+    TcpServer *tcpServer = new TcpServer();
 
     //if (srv) {
-        srv->start_server(host_ip_str, host_port_str, disconnect_event, client_mode);
+    tcpServer->start_server(hostIp, hostPort, disconnectEvent, clientMode);
     //}
 
-    if (client_mode) {
-        TcpClient *client = new TcpClient();
+    if (clientMode) {
+        TcpClient *tcpClient = new TcpClient();
 
         //if (client) {
-            client->start_client(remote_ip_str, remote_port_str, disconnect_event);
+        tcpClient->start_client(remoteIp, remotePort, disconnectEvent);
         //}
 
         //if (srv && client) {
-            QObject::connect(client, SIGNAL(recv_from_remote_server(QByteArray &)), srv, SLOT(on_recv_from_remote_server(QByteArray &)));
-            QObject::connect(srv, SIGNAL(send_to_remote_server(QByteArray &)), client, SLOT(on_send_to_remote_server(QByteArray &)));
-            QObject::connect(client, SIGNAL(server_closed_the_connection()), srv, SLOT(on_server_closed_the_connection()));
-            QObject::connect(srv, SIGNAL(client_closed_the_connection()), client, SLOT(on_client_closed_the_connection()));
+        QObject::connect(tcpServer, SIGNAL(recv_from_remote_server(QByteArray &)), tcpServer, SLOT(on_recv_from_remote_server(QByteArray &)));
+        QObject::connect(tcpServer, SIGNAL(send_to_remote_server(QByteArray &)), tcpClient, SLOT(on_send_to_remote_server(QByteArray &)));
+        QObject::connect(tcpClient, SIGNAL(server_closed_the_connection()), tcpServer, SLOT(on_server_closed_the_connection()));
+        QObject::connect(tcpServer, SIGNAL(client_closed_the_connection()), tcpClient, SLOT(on_client_closed_the_connection()));
         //}
     }
 

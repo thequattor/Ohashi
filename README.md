@@ -1,5 +1,7 @@
 # Ohashi
 
+![Ohasi](./assets/ohashi.jpg)
+
 Simply TCP broker built with C++ and Qt.
 
 ## How to start?

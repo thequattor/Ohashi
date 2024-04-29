@@ -3,11 +3,11 @@ find_package(Qt6 COMPONENTS
         Network
         REQUIRED)
 
-add_executable(tcp_broker main.cpp
+add_executable(ohashi main.cpp
         common.cpp
         tcp_client.cpp
         tcp_server.cpp)
 
-target_link_libraries(tcp_broker
+target_link_libraries(ohashi
         Qt6::Core
         Qt6::Network)

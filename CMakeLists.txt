@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
 
-project(tcp_broker)
+project(ohashi)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)

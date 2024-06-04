@@ -9,7 +9,7 @@ Simply TCP broker built with C++ and Qt.
 1. go to `build` direcrory and run:
 
 ```
-./ohashi -i YOUR_HOST_ADDRESS - YOUR_HOST_PORT
+./ohashi -i YOUR_HOST_ADDRESS -p YOUR_HOST_PORT
 ```
 
 2. start sample console clients
